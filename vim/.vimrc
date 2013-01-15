@@ -73,8 +73,8 @@ set completeopt=menuone,longest,preview
 " fuzzy finder
 " map <C-f> :FufFile<cr>
 
-" nerdtree
-map <C-n> :NERDTreeToggle<cr>
+" nerdtree tabs
+map <C-n> :NERDTreeTabsToggle<cr>
 
 " :W to write with sudo
 command W w !sudo tee % > /dev/null
