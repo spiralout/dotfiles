@@ -1,5 +1,10 @@
 #!/bin/sh
 
+# if ~/.vim already exists, move it out of the way
+if [ -d "$HOME/.vim" ]; then
+    mv -f "$HOME/.vim" "$HOME/.vim.bak"
+fi
+
 # make sure ~/.vim exists
 if ! [ -d "$HOME/.vim" ]; then
     mkdir "$HOME/.vim"
