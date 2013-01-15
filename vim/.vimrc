@@ -1,65 +1,69 @@
+" Load pathogen bundles
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
-set nobackup
-set nowb
-set noswapfile
-set nocompatible
-set autoindent
-set smartindent
-set tabstop=4
-set shiftwidth=4
-set softtabstop=4
-set expandtab
+" General
+set nocompatible  " this is vim not vi
+set history=1000  " 1000 commands 
+set autoread      " reload files that have changed
+
+"filetype on
+"filetype plugin on
+filetype plugin indent on
+
+" Colors
+if &t_Co > 2 || has("gui_running")
+    set t_Co=256
+    syntax on
+    set background=dark
+    colorscheme solarized
+endif
+
+" Backups
+set nobackup       " no backups after close
+set nowritebackup  " no backup while working
+set noswapfile     " no swap files
+
+" UI
+set ruler
+set showcmd
+set nolazyredraw  
+set number        " show line numbers
+set wildmenu      " turn on wild menu
+set nohlsearch    " don't highlight search results
+set backspace=indent,eol,start
+set statusline=%<%F%h%m%r%h%w%y\ %{fugitive#statusline()}\ %{&ff}\ =\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
+set cursorline
+
+" Text formatting
+set autoindent     " auto indent new lines
+set smartindent    " be smart about it
+set wrap           " wrap long lines
+set tabstop=4      " 4 space tabs
+set shiftwidth=4   " 4 space indents
+set softtabstop=4  " 4 space indents
+set expandtab      " expand tabs to spaces
+set nosmarttab     " or dumb ones for that matter
+
 set showmatch
 set vb t_vb=
-set ruler
-set nohlsearch  " don't highlight search results
 set incsearch  " incremental search
 set virtualedit=all
-set background=dark
 set autochdir
-set backspace=indent,eol,start
 set hidden                                                                          
 set noerrorbells
 set laststatus=2
-set lazyredraw
 set linespace=0
-set wildmenu
 set matchtime=5
-set number  " show line numbers
 set report=0
 set scrolloff=6
-set showcmd
 set showmatch
 set sidescrolloff=10
-set statusline=%<%F%h%m%r%h%w%y\ %{fugitive#statusline()}\ %{&ff}\ =\ lin:%l\,%L\ col:%c%V\ pos:%o\ ascii:%b\ %P
 set ignorecase
-set autoread  " reload files that have changed
-"set t_Co=256
-set showtabline=2
-set cursorline
 
-" syntax highlighting
-syntax on
-set background=dark
-colorscheme solarized
 
-filetype on
-filetype plugin on
-filetype plugin indent on
-
-" auto change to cwd of file
+" auto change to cwd of buffer
 autocmd BufEnter * cd %:p:h
-
-" tabs
-nmap <C-S-tab> :tabprevious<cr>
-nmap <C-tab> :tabnext<cr>
-imap <C-S-tab> <ESC>:tabprevious<cr>i
-imap <C-tab> <ESC>:tabnext<cr>i
-nmap <C-t> :tabnew<cr>
-imap <C-t> <ESC>:tabnew<cr>i
-map <C-x> :tabclose<cr>
 
 " Syntastic
 let g:syntastic_check_on_open=1
