@@ -1,4 +1,5 @@
-call pathogen#infect()
+call pathogen#runtime_append_all_bundles()
+call pathogen#helptags()
 
 set nobackup
 set nowb
@@ -60,11 +61,20 @@ nmap <C-t> :tabnew<cr>
 imap <C-t> <ESC>:tabnew<cr>i
 map <C-x> :tabclose<cr>
 
+" Syntastic
+let g:syntastic_check_on_open=1
+let g:syntastic_python_checker="flake8"
+
+" Supertab
+au FileType python set omnifunc=pythoncomplete#Complete
+let g:SuperTabDefaultCompletionType="context"
+set completeopt=menuone,longest,preview
+
 " fuzzy finder
 " map <C-f> :FufFile<cr>
 
 " nerdtree
-" map <C-n> :NERDTreeToggle<cr>
+map <C-n> :NERDTreeToggle<cr>
 
 " :W to write with sudo
 command W w !sudo tee % > /dev/null
