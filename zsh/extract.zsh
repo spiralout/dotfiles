@@ -1,3 +1,4 @@
+# extract any sort of archive
 extract () {
     if [ -f $1 ]; then
         case $1 in

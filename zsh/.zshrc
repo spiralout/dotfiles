@@ -20,11 +20,21 @@ source $ZSH/oh-my-zsh.sh
 
 # Customize to your needs...
 export PATH=/home/scrystal/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
-export PATH=$PATH:$DOTFILES/bin
+export PATH=$PATH:$DOTFILES/bin:/var/lib/gems/1.8/bin
 
 autoload zmv
 
+# load zsh files
 for zsh_file ($DOTFILES/zsh/*.zsh) source $zsh_file
+
+# vi mode
+bindkey -v 
+
+# local settings for zsh
+if [ -f $HOME/.zsh.local ]; then
+    source $HOME/.zsh.local
+fi
+
 
 
 
