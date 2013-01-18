@@ -2,6 +2,10 @@
 
 # if ~/.vim already exists, move it out of the way
 if [ -d "$HOME/.vim" ]; then
+    if [ -e "$HOME/.vim.bak" ]; then
+        rm -rf "$HOME/.vim.bak"
+    fi
+
     mv -f "$HOME/.vim" "$HOME/.vim.bak"
 fi
 

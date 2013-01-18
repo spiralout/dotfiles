@@ -12,3 +12,9 @@ alias zmv='noglob zmv -W'
 # humanize things
 alias df='df -h'
 alias du='du -h -d 2'
+
+# find processes
+alias findps='ps aux | grep'
+
+# find network sockets
+alias findns='netstat -nap | grep'

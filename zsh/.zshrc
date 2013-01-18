@@ -14,7 +14,7 @@ COMPLETION_WAITING_DOTS="true"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git git-extras)
+plugins=(git git-extras vi-mode)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -26,9 +26,6 @@ autoload zmv
 
 # load zsh files
 for zsh_file ($DOTFILES/zsh/*.zsh) source $zsh_file
-
-# vi mode
-bindkey -v 
 
 # local settings for zsh
 if [ -f $HOME/.zsh.local ]; then

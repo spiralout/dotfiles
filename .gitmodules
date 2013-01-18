@@ -19,3 +19,6 @@
 [submodule "vim/bundle/simple-pairs"]
 	path = vim/bundle/simple-pairs
 	url = git://github.com/vim-scripts/simple-pairs.git
+[submodule "vim/bundle/twig"]
+	path = vim/bundle/twig
+	url = git://github.com/beyondwords/vim-twig.git
